@@ -1,0 +1,46 @@
+Local Machine:
+OS: Xubuntu 18.0 (VM), Mac OS High Sierra Host
+CPU: Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz
+Cores: 4
+RAM: 1.9G (VM), 16G Host
+
++------------+--------+--------+---------+
+| Processes  | Test 1 | Test 2 | Test 3  |
++------------+--------+--------+---------+
+|          1 |   9.94 |   9.32 |   10.25 |   
+|          4 |   4.78 |   4.95 |   4.26  |
+|          8 |   3.50 |   3.78 |   3.53  |
++------------+--------+--------+---------+
+
+
+CCIS Server:
+OS: CentOS Linux release 7.5.1804 (Core)
+CPU: Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz
+Cores: 16
+RAM: 62G
+
++------------+---------+---------+---------+
+| Processes  | Test 1  | Test 2  | Test 3  |
++------------+---------+---------+---------+
+|          1 |   15.32 |   14.63 |   13.87 |
+|          4 |   8.21  |   9.16  |   7.99  |
+|          8 |   6.01  |   5.91  |   5.39  |
++------------+---------+---------+---------+
+
+
+
+
+Overall, it was quite evident that more cores correlated to faster
+runtime for this sampls sort algorithm, which was the expected output.
+My host machine completed the tests faster than the CCIS server, for a
+few possible reasons. The most likely of which is simply due to the
+clock rate of the CPUs. My host machine was able to complete the
+necessary calculations to sort all 50000000 numbers in less time than
+the CCIS CPU, even though it had more cores. If more processes were
+added, however, the CCIS CPU may have ended up being faster than mine.
+
+Overall, the 8 core speedup of the sort was just under 3 in both
+cases. While this is still a significant improvement, it is nowhere
+near the optimal S=N. Therefore, more optimal sorting algorithms using
+multiple processors are possible. 
+
